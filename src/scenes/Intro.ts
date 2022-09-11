@@ -31,71 +31,46 @@ export default class Intro extends Phaser.Scene {
 		text.text = "Testons votre culture !";
 		text.setStyle({ "color": "#ffffffff", "fontSize": "26px" });
 
-		// btn_2
-		const btn_2 = this.add.rectangle(415, 482, 128, 128);
-		btn_2.scaleX = 1.5115197830474845;
-		btn_2.scaleY = 0.4464428520727569;
-		btn_2.isFilled = true;
-		btn_2.fillColor = 2873884;
-		btn_2.fillAlpha = 0.8;
-
-		// btn_1
-		const btn_1 = this.add.rectangle(144, 482, 128, 128);
-		btn_1.scaleX = 1.5115197830474845;
-		btn_1.scaleY = 0.4464428520727569;
-		btn_1.isFilled = true;
-		btn_1.fillColor = 2873884;
-		btn_1.fillAlpha = 0.8;
-
-		// btn_3
-		const btn_3 = this.add.rectangle(668, 482, 128, 128);
-		btn_3.scaleX = 1.5115197830474845;
-		btn_3.scaleY = 0.4464428520727569;
-		btn_3.isFilled = true;
-		btn_3.fillColor = 2873884;
-		btn_3.fillAlpha = 0.8;
-
-		// text_2
-		const text_2 = this.add.text(144, 482, "", {});
-		text_2.setOrigin(0.5, 0.5);
-		text_2.text = "Au hazard";
-		text_2.setStyle({ "color": "#ffffffff" });
-
-		// text_3
-		const text_3 = this.add.text(417, 483, "", {});
-		text_3.setOrigin(0.5, 0.5);
-		text_3.text = "histoire";
-		text_3.setStyle({ "color": "#ffffffff" });
-
-		// text_4
-		const text_4 = this.add.text(668, 482, "", {});
-		text_4.setOrigin(0.5, 0.5);
-		text_4.text = "Outils";
-		text_4.setStyle({ "color": "#ffffffff" });
-
-		this.btn_2 = btn_2;
-		this.btn_1 = btn_1;
-		this.btn_3 = btn_3;
-
 		this.events.emit("scene-awake");
 	}
 
-	public btn_2!: Phaser.GameObjects.Rectangle;
-	public btn_1!: Phaser.GameObjects.Rectangle;
-	public btn_3!: Phaser.GameObjects.Rectangle;
-
 	/* START-USER-CODE */
+	public remainingLives: any;
 
 	// Write your code here
 
 	create() {
 
 		this.editorCreate();
-		this.btn_1
-		.setInteractive(({ useHandCursor: true }))
-	      .on('pointerdown', function() {
-			this.scene.start('Question');
-		}, this);
+
+		var categories = this.cache.json.get('questions');
+		console.log(categories)
+		this.remainingLives = categories.lives;
+
+		Object.keys(categories.categories).forEach((element, i) => {
+			this.creerBouton(i + 200, 482, `${i}`)
+				.setInteractive(({ useHandCursor: true }))
+				.on('pointerdown', function(e, f) {
+					console.log(e.x)
+					//this.scene.start('Question');
+				}, this);
+			});
+		console.log(this.remainingLives)
+	}
+
+	creerBouton(x, y = 482, texte = 'vide') {
+		const btn_1 = this.add.rectangle(x, y, 128, 128);
+		btn_1.scaleX = 1.5115197830474845;
+		btn_1.scaleY = 0.4464428520727569;
+		btn_1.isFilled = true;
+		btn_1.fillColor = 2873884;
+		btn_1.fillAlpha = 0.8;
+
+		const text_4 = this.add.text(x, y, "", {});
+		text_4.setOrigin(0.5, 0.5);
+		text_4.text = texte;
+		text_4.setStyle({ "color": "#ffffffff" });
+		return btn_1;
 	}
 
 	/* END-USER-CODE */
