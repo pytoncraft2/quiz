@@ -22,7 +22,8 @@
         {
             "type": "Rectangle",
             "id": "44a161d2-0528-45c0-8e39-0dfeb927e6e9",
-            "label": "rectangle_1",
+            "label": "btn_1",
+            "scope": "PUBLIC",
             "components": [],
             "x": 400,
             "y": 373,
@@ -53,8 +54,11 @@
                 {
                     "type": "Rectangle",
                     "id": "5cfbf8f8-1243-43e0-9693-d104a4f13680",
-                    "label": "rectangle_2",
-                    "components": [],
+                    "label": "btn_2",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "PushOnClick"
+                    ],
                     "x": 400,
                     "y": 492,
                     "scaleX": 1.3974921969956955,

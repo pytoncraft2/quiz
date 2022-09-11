@@ -1,0 +1,58 @@
+{
+    "id": "057d828a-33cf-4554-8989-f8c4ab8471e3",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Fin",
+        "compilerOutputLanguage": "TYPE_SCRIPT"
+    },
+    "displayList": [
+        {
+            "type": "Text",
+            "id": "1ca942f7-ba5f-4f6e-afe3-2e30e1f027af",
+            "label": "text_1",
+            "components": [],
+            "x": 400,
+            "y": 254.5,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Victoire ou défaite"
+        },
+        {
+            "type": "Rectangle",
+            "id": "02783ea2-4c53-410c-bca3-b00d432cc4dc",
+            "label": "btn_1",
+            "scope": "PUBLIC",
+            "components": [],
+            "x": 404,
+            "y": 319,
+            "scaleX": 0.9453162738997063,
+            "scaleY": 0.20159846586159716,
+            "isFilled": true,
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Text",
+            "id": "58f418b7-3a91-43c8-a061-fcfc40baaec8",
+            "label": "text_2",
+            "components": [],
+            "x": 404,
+            "y": 319,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "OK",
+            "color": "#000000ff"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

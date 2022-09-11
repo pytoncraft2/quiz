@@ -4,6 +4,7 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import PushOnClick from "../components/PushOnClick";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -23,11 +24,11 @@ export default class Question extends Phaser.Scene {
 		const text_1 = this.add.text(6, 15, "", {});
 		text_1.text = "Question X";
 
-		// rectangle_1
-		const rectangle_1 = this.add.rectangle(400, 373, 128, 128);
-		rectangle_1.scaleX = 1.3974921969956955;
-		rectangle_1.scaleY = 0.37766287512812813;
-		rectangle_1.isFilled = true;
+		// btn_1
+		const btn_1 = this.add.rectangle(400, 373, 128, 128);
+		btn_1.scaleX = 1.3974921969956955;
+		btn_1.scaleY = 0.37766287512812813;
+		btn_1.isFilled = true;
 
 		// text_2
 		const text_2 = this.add.text(400, 374, "", {});
@@ -38,12 +39,12 @@ export default class Question extends Phaser.Scene {
 		// container_1
 		const container_1 = this.add.container(0, 0);
 
-		// rectangle_2
-		const rectangle_2 = this.add.rectangle(400, 492, 128, 128);
-		rectangle_2.scaleX = 1.3974921969956955;
-		rectangle_2.scaleY = 0.37766287512812813;
-		rectangle_2.isFilled = true;
-		container_1.add(rectangle_2);
+		// btn_2
+		const btn_2 = this.add.rectangle(400, 492, 128, 128);
+		btn_2.scaleX = 1.3974921969956955;
+		btn_2.scaleY = 0.37766287512812813;
+		btn_2.isFilled = true;
+		container_1.add(btn_2);
 
 		// text_3
 		const text_3 = this.add.text(401, 491, "", {});
@@ -57,8 +58,17 @@ export default class Question extends Phaser.Scene {
 		text_4.setOrigin(0.5, 0.5);
 		text_4.text = "Quelle est la couleur du cheval blanc d'Henry IV ?";
 
+		// btn_2 (components)
+		new PushOnClick(btn_2);
+
+		this.btn_1 = btn_1;
+		this.btn_2 = btn_2;
+
 		this.events.emit("scene-awake");
 	}
+
+	public btn_1!: Phaser.GameObjects.Rectangle;
+	public btn_2!: Phaser.GameObjects.Rectangle;
 
 	/* START-USER-CODE */
 
@@ -67,6 +77,16 @@ export default class Question extends Phaser.Scene {
 	create() {
 
 		this.editorCreate();
+		this.btn_1
+		.setInteractive(({ useHandCursor: true }))
+	      .on('pointerdown', function() {
+			this.scene.start('Reponse');
+		}, this);
+		this.btn_2
+		.setInteractive(({ useHandCursor: true }))
+	      .on('pointerdown', function() {
+			this.scene.start('Fin');
+		}, this);
 	}
 
 	/* END-USER-CODE */

@@ -1,0 +1,58 @@
+{
+    "id": "524c41d7-1136-479b-8383-1f3627cffff3",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Reponse",
+        "compilerOutputLanguage": "TYPE_SCRIPT"
+    },
+    "displayList": [
+        {
+            "type": "Text",
+            "id": "2111d7c6-8028-4991-8b08-3d0ca075a5d5",
+            "label": "text_1",
+            "components": [],
+            "x": 398.5,
+            "y": 164.5,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Correcte !"
+        },
+        {
+            "type": "Rectangle",
+            "id": "ada58fdf-f1ad-45ef-a8c8-cc85ea35a34d",
+            "label": "btn_1",
+            "scope": "PUBLIC",
+            "components": [],
+            "x": 395,
+            "y": 275,
+            "scaleX": 1.0833337318981657,
+            "scaleY": 0.2948050982760956,
+            "isFilled": true,
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Text",
+            "id": "40ebb971-4097-4c0a-9f0c-7a7dd133f309",
+            "label": "text_2",
+            "components": [],
+            "x": 396,
+            "y": 274,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Suivant",
+            "color": "#000000ff"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}
