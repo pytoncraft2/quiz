@@ -1,0 +1,128 @@
+{
+    "id": "42361bd5-f05e-41ed-b132-42ab8813f821",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Intro",
+        "compilerOutputLanguage": "TYPE_SCRIPT"
+    },
+    "displayList": [
+        {
+            "type": "Text",
+            "id": "8955be81-7afe-4d77-bba5-cf9a2d06fc5f",
+            "label": "text_1",
+            "components": [],
+            "x": 400,
+            "y": 94,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Bienvenue au quiz scout !",
+            "fontSize": "28px",
+            "color": "#ffffffff"
+        },
+        {
+            "type": "Text",
+            "id": "97ef00d3-d7f4-4278-ac15-d6121b46f50f",
+            "label": "text",
+            "components": [],
+            "x": 400,
+            "y": 241.157139008034,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Testons votre culture !",
+            "fontSize": "26px",
+            "color": "#ffffffff"
+        },
+        {
+            "type": "Rectangle",
+            "id": "b3d469b4-3b6b-4e9f-8912-9e24a2813836",
+            "label": "rectangle_1",
+            "components": [],
+            "x": 415,
+            "y": 482,
+            "scaleX": 1.5115197830474845,
+            "scaleY": 0.4464428520727569,
+            "isFilled": true,
+            "fillColor": "#2bda1c",
+            "fillAlpha": 0.8,
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Rectangle",
+            "id": "4f600b2a-5ce9-456c-b4be-3a7e74913ada",
+            "label": "rectangle",
+            "components": [],
+            "x": 144,
+            "y": 482,
+            "scaleX": 1.5115197830474845,
+            "scaleY": 0.4464428520727569,
+            "isFilled": true,
+            "fillColor": "#2bda1c",
+            "fillAlpha": 0.8,
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Rectangle",
+            "id": "5d4931c4-ac38-4bb6-8f96-3b2021f7c0aa",
+            "label": "rectangle_2",
+            "components": [],
+            "x": 668,
+            "y": 482,
+            "scaleX": 1.5115197830474845,
+            "scaleY": 0.4464428520727569,
+            "isFilled": true,
+            "fillColor": "#2bda1c",
+            "fillAlpha": 0.8,
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Text",
+            "id": "060524d2-73c8-46e2-8dde-7c1dd37ae147",
+            "label": "text_2",
+            "components": [],
+            "x": 144,
+            "y": 482,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Au hazard",
+            "color": "#ffffffff"
+        },
+        {
+            "type": "Text",
+            "id": "e146b5ac-e3ad-4dea-913f-e8f2a51f6407",
+            "label": "text_3",
+            "components": [],
+            "x": 417,
+            "y": 483,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "histoire",
+            "color": "#ffffffff"
+        },
+        {
+            "type": "Text",
+            "id": "ab5d4130-de67-4e86-b340-e71b7de9f957",
+            "label": "text_4",
+            "components": [],
+            "x": 668,
+            "y": 482,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Outils",
+            "color": "#ffffffff"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

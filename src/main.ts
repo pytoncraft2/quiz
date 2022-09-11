@@ -1,5 +1,5 @@
 import Phaser from "phaser"
-import Level from "./scenes/Level";
+import Intro from "./scenes/Intro";
 import Preload from "./scenes/Preload";
 
 class Boot extends Phaser.Scene {
@@ -22,12 +22,12 @@ class Boot extends Phaser.Scene {
 const game = new Phaser.Game({
     width: 800,
     height: 600,
-    backgroundColor: "#2f2f2f",
+    backgroundColor: "#006699",
     scale: {
         mode: Phaser.Scale.ScaleModes.FIT,
         autoCenter: Phaser.Scale.Center.CENTER_BOTH
     },
-    scene: [Boot, Preload, Level]
+    scene: [Boot, Preload, Intro]
 });
 
 game.scene.start("Boot");
