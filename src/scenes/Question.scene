@@ -1,0 +1,99 @@
+{
+    "id": "44ba9915-97b0-4c9a-8daa-a5ce2f7cdb34",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Question",
+        "compilerOutputLanguage": "TYPE_SCRIPT"
+    },
+    "displayList": [
+        {
+            "type": "Text",
+            "id": "dede9983-c502-4d07-9643-7433c6164c98",
+            "label": "text_1",
+            "components": [],
+            "x": 6,
+            "y": 15,
+            "text": "Question X"
+        },
+        {
+            "type": "Rectangle",
+            "id": "44a161d2-0528-45c0-8e39-0dfeb927e6e9",
+            "label": "rectangle_1",
+            "components": [],
+            "x": 400,
+            "y": 373,
+            "scaleX": 1.3974921969956955,
+            "scaleY": 0.37766287512812813,
+            "isFilled": true,
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Text",
+            "id": "fc1018ad-d32f-4d5c-82b7-ce796fd0853b",
+            "label": "text_2",
+            "components": [],
+            "x": 400,
+            "y": 374,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Vert",
+            "color": "#000000ff"
+        },
+        {
+            "type": "Container",
+            "id": "d1a536b1-8ab2-4d8d-882b-69b6a71b87c2",
+            "label": "container_1",
+            "components": [],
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "5cfbf8f8-1243-43e0-9693-d104a4f13680",
+                    "label": "rectangle_2",
+                    "components": [],
+                    "x": 400,
+                    "y": 492,
+                    "scaleX": 1.3974921969956955,
+                    "scaleY": 0.37766287512812813,
+                    "isFilled": true,
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Text",
+                    "id": "39793663-cd96-4dcc-ad67-a6da1cd96a72",
+                    "label": "text_3",
+                    "components": [],
+                    "x": 401,
+                    "y": 491,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Blanc",
+                    "color": "#000000ff"
+                }
+            ]
+        },
+        {
+            "type": "Text",
+            "id": "d46a1ec5-6258-40f3-a798-d72e7d65f0f0",
+            "label": "text_4",
+            "components": [],
+            "x": 400,
+            "y": 201.5,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Quelle est la couleur du cheval blanc d'Henry IV ?"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

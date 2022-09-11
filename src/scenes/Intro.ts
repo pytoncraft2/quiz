@@ -31,29 +31,29 @@ export default class Intro extends Phaser.Scene {
 		text.text = "Testons votre culture !";
 		text.setStyle({ "color": "#ffffffff", "fontSize": "26px" });
 
-		// rectangle_1
-		const rectangle_1 = this.add.rectangle(415, 482, 128, 128);
-		rectangle_1.scaleX = 1.5115197830474845;
-		rectangle_1.scaleY = 0.4464428520727569;
-		rectangle_1.isFilled = true;
-		rectangle_1.fillColor = 2873884;
-		rectangle_1.fillAlpha = 0.8;
+		// btn_2
+		const btn_2 = this.add.rectangle(415, 482, 128, 128);
+		btn_2.scaleX = 1.5115197830474845;
+		btn_2.scaleY = 0.4464428520727569;
+		btn_2.isFilled = true;
+		btn_2.fillColor = 2873884;
+		btn_2.fillAlpha = 0.8;
 
-		// rectangle
-		const rectangle = this.add.rectangle(144, 482, 128, 128);
-		rectangle.scaleX = 1.5115197830474845;
-		rectangle.scaleY = 0.4464428520727569;
-		rectangle.isFilled = true;
-		rectangle.fillColor = 2873884;
-		rectangle.fillAlpha = 0.8;
+		// btn_1
+		const btn_1 = this.add.rectangle(144, 482, 128, 128);
+		btn_1.scaleX = 1.5115197830474845;
+		btn_1.scaleY = 0.4464428520727569;
+		btn_1.isFilled = true;
+		btn_1.fillColor = 2873884;
+		btn_1.fillAlpha = 0.8;
 
-		// rectangle_2
-		const rectangle_2 = this.add.rectangle(668, 482, 128, 128);
-		rectangle_2.scaleX = 1.5115197830474845;
-		rectangle_2.scaleY = 0.4464428520727569;
-		rectangle_2.isFilled = true;
-		rectangle_2.fillColor = 2873884;
-		rectangle_2.fillAlpha = 0.8;
+		// btn_3
+		const btn_3 = this.add.rectangle(668, 482, 128, 128);
+		btn_3.scaleX = 1.5115197830474845;
+		btn_3.scaleY = 0.4464428520727569;
+		btn_3.isFilled = true;
+		btn_3.fillColor = 2873884;
+		btn_3.fillAlpha = 0.8;
 
 		// text_2
 		const text_2 = this.add.text(144, 482, "", {});
@@ -73,8 +73,16 @@ export default class Intro extends Phaser.Scene {
 		text_4.text = "Outils";
 		text_4.setStyle({ "color": "#ffffffff" });
 
+		this.btn_2 = btn_2;
+		this.btn_1 = btn_1;
+		this.btn_3 = btn_3;
+
 		this.events.emit("scene-awake");
 	}
+
+	public btn_2!: Phaser.GameObjects.Rectangle;
+	public btn_1!: Phaser.GameObjects.Rectangle;
+	public btn_3!: Phaser.GameObjects.Rectangle;
 
 	/* START-USER-CODE */
 
@@ -83,6 +91,11 @@ export default class Intro extends Phaser.Scene {
 	create() {
 
 		this.editorCreate();
+		this.btn_1
+		.setInteractive(({ useHandCursor: true }))
+	      .on('pointerdown', function() {
+			this.scene.start('Question');
+		}, this);
 	}
 
 	/* END-USER-CODE */

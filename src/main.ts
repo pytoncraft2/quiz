@@ -1,5 +1,6 @@
 import Phaser from "phaser"
 import Intro from "./scenes/Intro";
+import Question from "./scenes/Question";
 import Preload from "./scenes/Preload";
 
 class Boot extends Phaser.Scene {
@@ -27,7 +28,7 @@ const game = new Phaser.Game({
         mode: Phaser.Scale.ScaleModes.FIT,
         autoCenter: Phaser.Scale.Center.CENTER_BOTH
     },
-    scene: [Boot, Preload, Intro]
+    scene: [Boot, Preload, Intro, Question]
 });
 
 game.scene.start("Boot");

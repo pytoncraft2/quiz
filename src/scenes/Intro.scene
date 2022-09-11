@@ -39,7 +39,8 @@
         {
             "type": "Rectangle",
             "id": "b3d469b4-3b6b-4e9f-8912-9e24a2813836",
-            "label": "rectangle_1",
+            "label": "btn_2",
+            "scope": "PUBLIC",
             "components": [],
             "x": 415,
             "y": 482,
@@ -54,7 +55,8 @@
         {
             "type": "Rectangle",
             "id": "4f600b2a-5ce9-456c-b4be-3a7e74913ada",
-            "label": "rectangle",
+            "label": "btn_1",
+            "scope": "PUBLIC",
             "components": [],
             "x": 144,
             "y": 482,
@@ -69,7 +71,8 @@
         {
             "type": "Rectangle",
             "id": "5d4931c4-ac38-4bb6-8f96-3b2021f7c0aa",
-            "label": "rectangle_2",
+            "label": "btn_3",
+            "scope": "PUBLIC",
             "components": [],
             "x": 668,
             "y": 482,
