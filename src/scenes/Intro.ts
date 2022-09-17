@@ -88,10 +88,14 @@ export default class Intro extends Phaser.Scene {
 			remainingLives:this.remainingLives
 		};
         // var button = this.game.add.button(0, 0, key, this.onButtonCategoryClicked, context, 2, 1, 0);
+        console.log("CONTEXT");
+        console.log(context);
+        
+        
 		const button = this.add.text(400, 541.157139008034, "XXX", {});
 		const self = this;
 		button.setInteractive().on('pointerdown', function(pointer, localX, localY, event){
-			self.scene.start('Question',[true,false,this.category,0,this.remainingLives,0]);
+			self.scene.start('Question',[true,false,context.category,0,context.remainingLives,0]);
 		});
         if (this.previousButton) {
             // button.alignTo(this.previousButton, Phaser.RIGHT_CENTER, 16);

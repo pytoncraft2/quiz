@@ -74,6 +74,10 @@ export default class Question extends Phaser.Scene {
 
 	// Write your code here
 
+	init(infos) {
+		console.log(infos);
+	}
+
 	create() {
 
 		this.editorCreate();
