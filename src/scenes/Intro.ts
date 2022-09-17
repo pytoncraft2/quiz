@@ -98,6 +98,17 @@ export default class Intro extends Phaser.Scene {
         }
         this.previousButton = button;
         this.groupButtons.add(button);
+
+		Phaser.Actions.GridAlign(this.groupButtons.getChildren(), {
+            width: 10,
+            height: 10,
+            cellWidth: 32,
+            cellHeight: 32,
+            x: 350,
+            y: 300
+        });
+		console.log(this.groupButtons);
+		
     }
 
     onButtonCategoryClicked() {
