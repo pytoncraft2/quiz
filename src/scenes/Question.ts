@@ -123,7 +123,7 @@ export default class Question extends Phaser.Scene {
     }
 
     addQuestionTitle(textContent,imageQuestion){
-        var questionTitleElement = this.game.add.text(0,0,textContent, {
+        var questionTitleElement = this.add.text(0,0,textContent, {
             font: "24pt Audiowide", 
             fill: "#000000", 
             wordWrap: true,  
@@ -131,29 +131,50 @@ export default class Question extends Phaser.Scene {
             align: "left", 
             backgroundColor: '#ffffff' 
         });
-        questionTitleElement.alignTo(imageQuestion,Phaser.BOTTOM_CENTER);
+        // questionTitleElement.alignTo(imageQuestion,Phaser.BOTTOM_CENTER);
         return questionTitleElement;
     }
     addButtonsChoice(choicesText,answerIndex,questionTitleElement){
-        var groupButtons = this.game.add.group();
+        var groupButtons = this.add.group();
         var previousGroup;
         for(var index=0;index<choicesText.length;index++){
             var isRightAnswer = (index===answerIndex);
             var group = this.addChoiceGroup(choicesText[index],isRightAnswer);
             if(previousGroup){
-                group.alignTo(previousGroup, Phaser.BOTTOM_LEFT, 0);
+                // group.alignTo(previousGroup, Phaser.BOTTOM_LEFT, 0);
             }
             previousGroup = group;
             groupButtons.add(group);
         }
-        groupButtons.alignTo(questionTitleElement, Phaser.BOTTOM_CENTER, 0);
+        // groupButtons.alignTo(questionTitleElement, Phaser.BOTTOM_CENTER, 0);
     }
     addChoiceGroup(title,isRightAnswer){
-        var button = this.game.add.button(0,0, 'button', this.onButtonChoiceClicked, {context:this,isRightAnswer:isRightAnswer}, 2, 1, 0);
-        button.scale.set(0.5);
-        var text = this.game.add.text(0,0,title, {font: "12pt Audiowide", fill: "#000000", wordWrap: false,  align: "left", backgroundColor: '#ffffff' });
-        text.alignTo(button, Phaser.RIGHT_CENTER, 0);
-        var group = this.game.add.group();
+        // var button = this.add.button(0,0, 'button', this.onButtonChoiceClicked, {context:this,isRightAnswer:isRightAnswer}, 2, 1, 0);
+        // button.scale.set(0.5);
+		const button = this.add.text(400, 541.157139008034, "XXX", {});
+		const self = this;
+		button.setInteractive().on('pointerdown', function(pointer, localX, localY, event){
+        var context = this.context;
+        if(self.isRightAnswer){
+            self.score++;            
+            // context.marioWinSound.play();
+        }else{
+            // context.marioLoseSound.play();
+            self.remainingLives--;
+        }
+        if(self.remainingLives>0){
+            self.scene.start('answer',true,false,context.categoryIndexSelected,context.currentQuestionIndex,this.isRightAnswer,context.remainingLives,context.score);
+        }else{
+            var isWin = false
+            self.scene.state.start('endgame',true,false,isWin);
+        }
+
+			self.scene.start('Question',[true,false,context.category,0,context.remainingLives,0]);
+		});
+
+        var text = this.add.text(0,0,title, {font: "12pt Audiowide", fill: "#000000", wordWrap: false,  align: "left", backgroundColor: '#ffffff' });
+        // text.alignTo(button, Phaser.RIGHT_CENTER, 0);
+        var group = this.add.group();
         group.add(button);
         group.add(text);
         return group;
@@ -183,26 +204,26 @@ export default class Question extends Phaser.Scene {
     showImageQuestion(categoryIndex,questionIndex){
         var key = ['image_question',categoryIndex,questionIndex].join('_');
         var image_question = this.add.image(0,0, key);
-        var scale = 1;
-        if(image_question.height > maxHeightImageQuestion){
-            scale = QuizGame.Constants.maxHeightImageQuestion/image_question.height;      
-        }
-        image_question.scale.set(scale);
-        image_question.alignIn(this.rectCanvas,Phaser.TOP_CENTER);
+        // var scale = 1;
+        // if(image_question.height > maxHeightImageQuestion){
+            // scale = QuizGame.Constants.maxHeightImageQuestion/image_question.height;      
+        // }
+        // image_question.scale.set(scale);
+        // image_question.alignIn(this.rectCanvas,Phaser.TOP_CENTER);
         return image_question;
     }
     showLives(lives){
-        var group = this.game.add.group();
+        var group = this.add.group();
         var previous;
         for(var index=0;index<lives;index++){
-            var heart = this.game.add.sprite(0,0, 'heart');
+            var heart = this.add.sprite(0,0, 'heart');
             if(previous){
-                heart.alignTo(previous, Phaser.RIGHT_CENTER, 0);
+                // heart.alignTo(previous, Phaser.RIGHT_CENTER, 0);
             }
             previous = heart;
             group.add(heart);
         }
-        group.alignIn(this.rectCanvas,Phaser.TOP_RIGHT)
+        // group.alignIn(this.rectCanvas,Phaser.TOP_RIGHT)
         return group;
     }
     showScore(score,total){
@@ -210,12 +231,18 @@ export default class Question extends Phaser.Scene {
             font: "20pt Audiowide", fill: "#7C00F8", wordWrap: false,  align: "right", backgroundColor: '#ffffff'
         };
         var textContent = 'Score : '+score+'/'+total;
-        var textEl = this.game.add.text(0,0,textContent, style);
-        textEl.alignTo(this.livesGroups,Phaser.BOTTOM_RIGHT);
+        var textEl = this.add.text(0,0,textContent, style);
+        // textEl.alignTo(this.livesGroups,Phaser.BOTTOM_RIGHT);
     }
     showExitButton(){
-        var button = this.game.add.button(0,0, 'exitButton', this.onButtonExitClicked, this, 2, 1, 0);        
-        button.alignIn(this.rectCanvas,Phaser.BOTTOM_RIGHT);
+		const button = this.add.text(400, 441.157139008034, "EXIT", {});
+		const self = this;
+		button.setInteractive().on('pointerdown', function(pointer, localX, localY, event){
+			this.scene.start('intro');
+		});
+
+        // var button = this.game.add.button(0,0, 'exitButton', this.onButtonExitClicked, this, 2, 1, 0);        
+        // button.alignIn(this.rectCanvas,Phaser.BOTTOM_RIGHT);
     }
     onButtonExitClicked(){
         this.scene.start('intro');
