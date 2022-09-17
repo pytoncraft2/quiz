@@ -5,6 +5,7 @@
 
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
+import rectangle from "../utils";
 /* END-USER-IMPORTS */
 
 export default class Intro extends Phaser.Scene {
@@ -36,6 +37,8 @@ export default class Intro extends Phaser.Scene {
 
 	/* START-USER-CODE */
 	public remainingLives: any;
+	public previousButton: any
+	public groupButtons?: Phaser.GameObjects.Group
 
 	// Write your code here
 
@@ -47,32 +50,81 @@ export default class Intro extends Phaser.Scene {
 		console.log(categories)
 		this.remainingLives = categories.lives;
 
-		Object.keys(categories.categories).forEach((element, i) => {
-			this.creerBouton(i + 200, 482, `${i}`)
-				.setInteractive(({ useHandCursor: true }))
-				.on('pointerdown', function(e, f) {
-					console.log(e.x)
-					//this.scene.start('Question');
-				}, this);
-			});
-		console.log(this.remainingLives)
+
+        var rectCanvas = rectangle(this);
+        var data = this.cache.json.get('questions');
+        this.remainingLives = data.lives;
+        var intoGroup = this.add.group();
+        var buttonsGroup = this.createButtons();
+        var textGroup = this.createTextHeaders();
+        // buttonsGroup.alignTo(textGroup,Phaser.BOTTOM_CENTER);
+        intoGroup.add(buttonsGroup)
+        intoGroup.add(textGroup)
+        // intoGroup.alignIn(rectCanvas,Phaser.CENTER);
+
 	}
 
-	creerBouton(x, y = 482, texte = 'vide') {
-		const btn_1 = this.add.rectangle(x, y, 128, 128);
-		btn_1.scaleX = 1.5115197830474845;
-		btn_1.scaleY = 0.4464428520727569;
-		btn_1.isFilled = true;
-		btn_1.fillColor = 2873884;
-		btn_1.fillAlpha = 0.8;
-
-		const text_4 = this.add.text(x, y, "", {});
-		text_4.setOrigin(0.5, 0.5);
-		text_4.text = texte;
-		text_4.setStyle({ "color": "#ffffffff" });
-		return btn_1;
+	createButtons() {
+        this.previousButton = null;
+        this.groupButtons = this.add.group();
+        this.createButtonCategory(0);
+        this.createButtonCategory(1);
+        this.createButtonCategory(2);
+        return this.groupButtons;
 	}
 
+    createButtonCategory(index: any) {
+        var key = 'buttonCategory_' + (index + 1);
+        var context = { 
+			category: index,
+			game:this,
+			remainingLives:this.remainingLives
+		};
+        // var button = this.game.add.button(0, 0, key, this.onButtonCategoryClicked, context, 2, 1, 0);
+		const button = this.add.text(400, 541.157139008034, "XXX", {});
+		button.setInteractive().on('pointerdown', function(pointer, localX, localY, event){
+		});
+        if (this.previousButton) {
+            // button.alignTo(this.previousButton, Phaser.RIGHT_CENTER, 16);
+        }
+        this.previousButton = button;
+        this.groupButtons.add(button);
+    }
+
+    onButtonCategoryClicked() {
+        this.scene.start('question',[true,false,this.category,0,this.remainingLives,0]);
+    }
+
+    createTextHeaders() {
+        var previous;
+        var texts = ['Welcome on board!','Let\'s test your skills','Choose your age!'];
+        var group = this.add.group();
+        var that = this;
+        texts.forEach( function(text){
+            var textEl = that.createText(text);
+            if(previous){
+                // textEl.alignTo(previous,Phaser.BOTTOM_CENTER);
+            }
+            previous = textEl;
+            group.add(textEl);
+        });
+        return group;
+    }
+
+    createText(textContent){
+        var style = this.getStyleCategory();
+        style.font = 'Audiowide';
+        style.fontSize = '38pt';
+        style.backgroundColor = '#ffffff';
+        style.fill= '#000000';
+        return this.add.text(0,0,textContent, style);
+    }
+
+	getStyleCategory() {
+        return { 
+            font: "38pt Arial", fill: "#000000", wordWrap: false,  align: "left", backgroundColor:'#FFFFFF'
+		};
+    }
 	/* END-USER-CODE */
 }
 
