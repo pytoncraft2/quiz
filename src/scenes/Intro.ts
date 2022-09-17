@@ -57,26 +57,16 @@ export default class Intro extends Phaser.Scene {
         var intoGroup = this.add.group();
         var buttonsGroup = this.createButtons();
         var textGroup = this.createTextHeaders();
-        // buttonsGroup.alignTo(textGroup,Phaser.BOTTOM_CENTER);
+		        //  Center the picture in the game
+				console.log(rectCanvas);
+				
+        Phaser.Display.Align.In.Center(rectCanvas, this.add.zone(400, 300, 800, 600));
 
-		Phaser.Actions.GridAlign(textGroup.getChildren(), {
-            width: 10,
-            height: 10,
-            cellWidth: 32,
-            cellHeight: 32,
-            x: 100,
-            y: 100
-        });
+        //  Center the sprite to the picture
+        Phaser.Display.Align.In.BottomCenter(textGroup, rectCanvas);
+        // buttonsGroup.alignTo(textGroup,Phaser.BOTTOM_CENTER);
         intoGroup.add(buttonsGroup)
         intoGroup.add(textGroup)
-		        Phaser.Actions.GridAlign(intoGroup.getChildren(), {
-            width: 10,
-            height: 10,
-            cellWidth: 32,
-            cellHeight: 32,
-            x: 300,
-            y: 300
-        });
         // intoGroup.alignIn(rectCanvas,Phaser.CENTER);
 
 	}
@@ -99,7 +89,9 @@ export default class Intro extends Phaser.Scene {
 		};
         // var button = this.game.add.button(0, 0, key, this.onButtonCategoryClicked, context, 2, 1, 0);
 		const button = this.add.text(400, 541.157139008034, "XXX", {});
+		const self = this;
 		button.setInteractive().on('pointerdown', function(pointer, localX, localY, event){
+			self.scene.start('Question',[true,false,this.category,0,this.remainingLives,0]);
 		});
         if (this.previousButton) {
             // button.alignTo(this.previousButton, Phaser.RIGHT_CENTER, 16);
