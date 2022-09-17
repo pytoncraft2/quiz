@@ -58,8 +58,25 @@ export default class Intro extends Phaser.Scene {
         var buttonsGroup = this.createButtons();
         var textGroup = this.createTextHeaders();
         // buttonsGroup.alignTo(textGroup,Phaser.BOTTOM_CENTER);
+
+		Phaser.Actions.GridAlign(textGroup.getChildren(), {
+            width: 10,
+            height: 10,
+            cellWidth: 32,
+            cellHeight: 32,
+            x: 100,
+            y: 100
+        });
         intoGroup.add(buttonsGroup)
         intoGroup.add(textGroup)
+		        Phaser.Actions.GridAlign(intoGroup.getChildren(), {
+            width: 10,
+            height: 10,
+            cellWidth: 32,
+            cellHeight: 32,
+            x: 300,
+            y: 300
+        });
         // intoGroup.alignIn(rectCanvas,Phaser.CENTER);
 
 	}
